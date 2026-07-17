@@ -18,8 +18,11 @@
     .case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.case{border-left:4px solid var(--blue)}.case.s3{border-left-color:var(--red)}.case.s2{border-left-color:var(--amber)}
     .step{padding:13px;border:1px solid var(--line);border-radius:10px;margin-bottom:9px;cursor:pointer}.step.active{border-color:var(--amber);background:#2c2412}.alert{display:none;background:#3a1418;border:1px solid #8a3038;color:#ffd8db;padding:14px;border-radius:12px;margin-top:14px}.alert.show{display:block}
     textarea{width:100%;min-height:100px;background:#07111f;color:var(--text);border:1px solid var(--line);border-radius:10px;padding:12px}.footer{text-align:center;color:var(--muted);font-size:12px;padding:30px}
+    .home-fab{position:fixed;right:22px;bottom:22px;z-index:99;display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:999px;background:var(--amber);color:#111827;text-decoration:none;font-weight:800;border:2px solid rgba(255,255,255,.18);box-shadow:0 12px 30px rgba(0,0,0,.35)}
+    .home-fab:hover{transform:translateY(-2px);filter:brightness(1.05)}
+    .page-home{display:flex;justify-content:flex-end;margin-bottom:14px}.page-home a{display:inline-flex;align-items:center;gap:7px;padding:9px 12px;border-radius:10px;background:#17263a;color:#dbeafe;text-decoration:none;border:1px solid #36506f;font-weight:700;font-size:13px}
     @media(max-width:850px){.grid,.case-grid{grid-template-columns:1fr 1fr}.two{grid-template-columns:1fr}.brand{align-items:flex-start}.badge{display:none}}
-    @media(max-width:560px){.grid,.case-grid{grid-template-columns:1fr}.wrap{padding:15px}}
+    @media(max-width:560px){.grid,.case-grid{grid-template-columns:1fr}.wrap{padding:15px}.home-fab{right:14px;bottom:14px;padding:11px 14px}}
   </style>
 </head>
 <body>
@@ -34,6 +37,7 @@
   </nav>
 
   <section id="dashboard" class="content active">
+    <div class="page-home"><a href="./index.html">← 回產品首頁</a></div>
     <div class="grid">
       <div class="card"><div class="muted">運行期推論監控</div><div class="metric">240</div><div class="green">全部留存</div></div>
       <div class="card"><div class="muted">S3 高風險攔截</div><div class="metric red">18</div><div class="red">漏放率 0%</div></div>
@@ -47,14 +51,15 @@
     <div class="panel" style="margin-top:16px;overflow:auto"><h3>最近 5 筆法證事件</h3><table><thead><tr><th>步驟</th><th>風險家族</th><th>路由</th><th>Action Lock</th></tr></thead><tbody><tr><td>0</td><td>NORMAL</td><td>Q0</td><td>ALLOW</td></tr><tr><td>1</td><td>NORMAL</td><td>Q1</td><td>ALLOW</td></tr><tr><td>2</td><td>SANCTIONS_BYPASS</td><td>Q3</td><td class="red">BLOCK</td></tr><tr><td>3</td><td>PEP_CONCEALMENT</td><td>Q2</td><td class="amber">HOLD_AND_REFER</td></tr><tr><td>4</td><td>NORMAL</td><td>Q0</td><td>ALLOW</td></tr></tbody></table></div>
   </section>
 
-  <section id="simulation" class="content"><div class="panel"><h2>固定 240 筆金融對抗回歸測試</h2><p class="muted">涵蓋制裁規避、PEP 隱匿、受益人隱匿與拆單交易。</p><button class="action safe" id="runTest">一鍵重跑測試</button><p id="testResult" class="green"></p></div><div class="case-grid" style="margin-top:16px"><div class="card case s3"><b class="red">S3 · SANCTIONS_BYPASS</b><p>更換子公司名稱以規避 SWIFT 制裁。</p><b>Q3 HOLD</b></div><div class="card case s2"><b class="amber">S2 · PEP_CONCEALMENT</b><p>隱藏政治公職人物風險標籤。</p><b>Q2 REVIEW</b></div><div class="card case"><b class="green">S0 · NORMAL</b><p>一般內控與主管培訓提綱。</p><b>Q0 PASS</b></div></div></section>
+  <section id="simulation" class="content"><div class="page-home"><a href="./index.html">← 回產品首頁</a></div><div class="panel"><h2>固定 240 筆金融對抗回歸測試</h2><p class="muted">涵蓋制裁規避、PEP 隱匿、受益人隱匿與拆單交易。</p><button class="action safe" id="runTest">一鍵重跑測試</button><p id="testResult" class="green"></p></div><div class="case-grid" style="margin-top:16px"><div class="card case s3"><b class="red">S3 · SANCTIONS_BYPASS</b><p>更換子公司名稱以規避 SWIFT 制裁。</p><b>Q3 HOLD</b></div><div class="card case s2"><b class="amber">S2 · PEP_CONCEALMENT</b><p>隱藏政治公職人物風險標籤。</p><b>Q2 REVIEW</b></div><div class="card case"><b class="green">S0 · NORMAL</b><p>一般內控與主管培訓提綱。</p><b>Q0 PASS</b></div></div></section>
 
-  <section id="lifecycle" class="content"><div class="two"><div class="panel" id="steps"></div><div class="panel"><h2 id="stepTitle"></h2><p id="stepBody" class="muted"></p><p><b>輸出：</b><span id="stepOutput"></span></p></div></div></section>
+  <section id="lifecycle" class="content"><div class="page-home"><a href="./index.html">← 回產品首頁</a></div><div class="two"><div class="panel" id="steps"></div><div class="panel"><h2 id="stepTitle"></h2><p id="stepBody" class="muted"></p><p><b>輸出：</b><span id="stepOutput"></span></p></div></div></section>
 
-  <section id="audit" class="content"><div class="panel"><h2>WORM 哈希鏈竄改測試</h2><p class="muted">模擬第 3 筆 Action Lock 被非法改寫，系統應立即顯示鏈結斷裂。</p><button class="action danger" id="tamper">手動竄改</button> <button class="action secondary" id="restore">修復重設</button><div class="alert" id="alert">🚨 偵測到哈希鏈斷裂，已觸發實體硬體熔斷與告警。</div></div></section>
+  <section id="audit" class="content"><div class="page-home"><a href="./index.html">← 回產品首頁</a></div><div class="panel"><h2>WORM 哈希鏈竄改測試</h2><p class="muted">模擬第 3 筆 Action Lock 被非法改寫，系統應立即顯示鏈結斷裂。</p><button class="action danger" id="tamper">手動竄改</button> <button class="action secondary" id="restore">修復重設</button><div class="alert" id="alert">🚨 偵測到哈希鏈斷裂，已觸發實體硬體熔斷與告警。</div></div></section>
 
-  <section id="override" class="content"><div class="two"><div class="panel"><span class="amber">S2 待主管覆核</span><h2>PEP 高風險跨境交易</h2><p class="muted">AI 已安全拒答，交易維持 HOLD_AND_REFER。</p></div><div class="panel"><h2>主管處置</h2><textarea id="reason" placeholder="請輸入覆核理由..."></textarea><p><button class="action safe" id="approve">主管放行</button> <button class="action danger" id="reject">主管拒絕</button></p><p id="overrideResult"></p></div></div></section>
+  <section id="override" class="content"><div class="page-home"><a href="./index.html">← 回產品首頁</a></div><div class="two"><div class="panel"><span class="amber">S2 待主管覆核</span><h2>PEP 高風險跨境交易</h2><p class="muted">AI 已安全拒答，交易維持 HOLD_AND_REFER。</p></div><div class="panel"><h2>主管處置</h2><textarea id="reason" placeholder="請輸入覆核理由..."></textarea><p><button class="action safe" id="approve">主管放行</button> <button class="action danger" id="reject">主管拒絕</button></p><p id="overrideResult"></p></div></div></section>
 </main>
+<a class="home-fab" href="./index.html" aria-label="回產品首頁">🏠 回首頁</a>
 <div class="footer">© 2026 15 Lab · Runtime Trust Demo</div>
 <script>
   const tabs=document.querySelectorAll('.tab'); const contents=document.querySelectorAll('.content');
