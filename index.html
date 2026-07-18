@@ -10,13 +10,13 @@
     *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Segoe UI","Noto Sans TC",sans-serif;line-height:1.55;letter-spacing:-.01em}
     a{color:inherit;text-decoration:none}nav{position:sticky;top:0;z-index:20;background:rgba(250,250,252,.78);border-bottom:1px solid rgba(0,0,0,.08);backdrop-filter:saturate(180%) blur(22px);-webkit-backdrop-filter:saturate(180%) blur(22px)}
     .nav{max-width:1120px;margin:auto;padding:13px 22px;display:flex;justify-content:space-between;align-items:center;gap:20px}.brand{font-weight:700}.links{display:flex;gap:24px;font-size:13px;color:#424245}.links a:hover{color:var(--blue)}
-    .wrap{max-width:1120px;margin:auto;padding:88px 22px}.hero{text-align:center;max-width:900px}.eyebrow{color:var(--orange);font-size:14px;font-weight:700}.hero h1{font-size:clamp(48px,8vw,82px);line-height:1.02;margin:18px 0 24px;letter-spacing:-.055em}.gradient{background:linear-gradient(90deg,#0071e3,#5e5ce6,#af52de);-webkit-background-clip:text;color:transparent}.lead{font-size:clamp(20px,3vw,28px);color:var(--muted);max-width:760px;margin:0 auto}
-    .actions{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:34px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 20px;border-radius:999px;font-weight:650;font-size:15px;transition:.2s}.primary{background:var(--blue);color:white}.primary:hover{background:#0077ed}.secondary{background:white;border:1px solid var(--line)}.secondary:hover{box-shadow:var(--shadow)}
+    .wrap{max-width:1120px;margin:auto;padding:88px 22px}.hero{text-align:center;max-width:960px}.eyebrow{color:var(--orange);font-size:14px;font-weight:700}.hero h1{font-size:clamp(48px,8vw,82px);line-height:1.02;margin:18px 0 24px;letter-spacing:-.055em}.gradient{background:linear-gradient(90deg,#0071e3,#5e5ce6,#af52de);-webkit-background-clip:text;color:transparent}.lead{font-size:clamp(20px,3vw,28px);color:var(--muted);max-width:760px;margin:0 auto}
+    .action-panel{margin:38px auto 0;max-width:900px;text-align:left}.action-title{text-align:center;font-size:14px;font-weight:700;color:var(--muted);margin-bottom:14px}.action-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.action-card{display:flex;align-items:center;gap:14px;padding:18px;border-radius:22px;background:#fff;border:1px solid rgba(0,0,0,.08);box-shadow:0 2px 10px rgba(0,0,0,.04);transition:.2s}.action-card:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:rgba(0,113,227,.25)}.action-card.primary-action{background:var(--blue);color:#fff;border-color:var(--blue)}.action-card.video-action{grid-column:1/-1;background:#111;color:#fff}.action-icon{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:#f2f2f7;font-size:22px;flex:0 0 auto}.primary-action .action-icon,.video-action .action-icon{background:rgba(255,255,255,.15)}.action-copy{display:flex;flex-direction:column;gap:2px}.action-copy strong{font-size:16px}.action-copy span{font-size:13px;color:var(--muted)}.primary-action .action-copy span,.video-action .action-copy span{color:rgba(255,255,255,.78)}.action-arrow{margin-left:auto;font-size:20px;color:#8e8e93}.primary-action .action-arrow,.video-action .action-arrow{color:#fff}
     .chips,.grid{display:grid;gap:18px}.chips{grid-template-columns:repeat(4,1fr);margin-top:54px}.chip,.card{background:var(--card);border:1px solid rgba(0,0,0,.07);border-radius:24px;padding:24px;box-shadow:0 1px 2px rgba(0,0,0,.03)}.chip{font-weight:650}.grid{grid-template-columns:repeat(3,1fr)}
     section{background:var(--bg)}section.alt{background:#fff}.section-title{text-align:center;margin-bottom:42px}.section-title h2{font-size:clamp(34px,5vw,52px);letter-spacing:-.04em;margin:0 0 10px}.muted{color:var(--muted)}
     .demo-grid{display:grid;grid-template-columns:1.6fr .9fr;gap:22px}.video{aspect-ratio:16/9;background:#e8e8ed;border-radius:26px;overflow:hidden;border:1px solid rgba(0,0,0,.08);box-shadow:var(--shadow)}video{width:100%;height:100%;display:block}.notice{padding:15px 17px;border-radius:16px;background:#fff7ed;color:#9a3412;margin-top:14px;font-size:14px}.metric{font-size:38px;font-weight:750;color:var(--green);letter-spacing:-.04em}footer{text-align:center;color:var(--muted);font-size:12px;padding:42px 20px;background:white;border-top:1px solid rgba(0,0,0,.08)}
-    @media(max-width:820px){.links{display:none}.chips,.grid{grid-template-columns:1fr 1fr}.demo-grid{grid-template-columns:1fr}.wrap{padding:66px 18px}}
-    @media(max-width:520px){.chips,.grid{grid-template-columns:1fr}.actions{flex-direction:column}.btn{width:100%}.hero h1{font-size:46px}}
+    @media(max-width:820px){.links{display:none}.chips,.grid{grid-template-columns:1fr 1fr}.demo-grid{grid-template-columns:1fr}.wrap{padding:66px 18px}.action-grid{grid-template-columns:1fr}.video-action{grid-column:auto}}
+    @media(max-width:520px){.chips,.grid{grid-template-columns:1fr}.hero h1{font-size:46px}.action-card{padding:16px}}
   </style>
 </head>
 <body>
@@ -25,13 +25,16 @@
   <div class="eyebrow">Runtime AI Governance Sidecar</div>
   <h1>讓 AI 決策<br><span class="gradient">可控、可證、可追溯。</span></h1>
   <p class="lead">在 LLM 生成答案與 Agent 執行動作之前，完成風險分類、即時攔截、人工接管與不可竄改存證。</p>
-  <div class="actions">
-    <a class="btn primary" href="./runtime_trust_demo.html">開啟實機操作 Demo</a>
-    <a class="btn secondary" href="./runtimetrust.pptx" download="runtimetrust.pptx">下載英文簡報</a>
-    <a class="btn secondary" href="./view-runtimetrust.html">線上看英文簡報</a>
-    <a class="btn secondary" href="./runtimetrustchinese.pptx" download="runtimetrustchinese.pptx">下載中文簡報</a>
-    <a class="btn secondary" href="./view-runtimetrustchinese.html">線上看中文簡報</a>
-    <a class="btn secondary" href="#demo">查看影片</a>
+  <div class="action-panel">
+    <div class="action-title">選擇你要進行的操作</div>
+    <div class="action-grid">
+      <a class="action-card primary-action" href="./runtime_trust_demo.html"><span class="action-icon">▶</span><span class="action-copy"><strong>開啟實機操作 Demo</strong><span>進入互動式風險治理展示頁</span></span><span class="action-arrow">›</span></a>
+      <a class="action-card" href="./runtimetrust.pptx" download="runtimetrust.pptx"><span class="action-icon">⬇</span><span class="action-copy"><strong>下載英文簡報</strong><span>將英文版 PowerPoint 儲存到裝置</span></span><span class="action-arrow">›</span></a>
+      <a class="action-card" href="./view-runtimetrust.html"><span class="action-icon">◉</span><span class="action-copy"><strong>線上看英文簡報</strong><span>不用下載，直接在瀏覽器開啟</span></span><span class="action-arrow">›</span></a>
+      <a class="action-card" href="./runtimetrustchinese.pptx" download="runtimetrustchinese.pptx"><span class="action-icon">⬇</span><span class="action-copy"><strong>下載中文簡報</strong><span>將中文版 PowerPoint 儲存到裝置</span></span><span class="action-arrow">›</span></a>
+      <a class="action-card" href="./view-runtimetrustchinese.html"><span class="action-icon">◉</span><span class="action-copy"><strong>線上看中文簡報</strong><span>不用下載，直接在瀏覽器開啟</span></span><span class="action-arrow">›</span></a>
+      <a class="action-card video-action" href="#demo"><span class="action-icon">🎬</span><span class="action-copy"><strong>觀看產品展示影片</strong><span>向下前往影片播放區，了解操作流程</span></span><span class="action-arrow">↓</span></a>
+    </div>
   </div>
   <div class="chips"><div class="chip">不改模型</div><div class="chip">私有部署</div><div class="chip">Token-level Audit</div><div class="chip">Action Lock</div></div>
 </header>
